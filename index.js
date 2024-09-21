@@ -10,7 +10,7 @@ const ddbDocClient = DynamoDBDocumentClient.from(client);
 const retrieveSession = async (event) => {
     const { message } = event;
     const { from } = message;
-    const sessionID = from.id;
+    let sessionID = from.id;
     sessionID = sessionID.toString();
     const command = new GetCommand({
         TableName: "sallySessions",

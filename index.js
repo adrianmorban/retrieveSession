@@ -8,7 +8,8 @@ const client = new DynamoDBClient({
 const ddbDocClient = DynamoDBDocumentClient.from(client);
 
 const retrieveSession = async (event) => {
-    const { from } = event;
+    const { message } = event;
+    const { from } = message;
     const sessionID = from.id;
     sessionID = sessionID.toString();
     const command = new GetCommand({

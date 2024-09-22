@@ -19,7 +19,9 @@ const retrieveSession = async (event) => {
         }
     });
     const response = await ddbDocClient.send(command);
-    return response.Item;
+    return {
+        SessionData: response.Item,
+    };
 }
 
 export { retrieveSession }
